@@ -1,0 +1,148 @@
+.body {
+  margin-bottom: 10px;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  width: 70vw;
+  border: 1px solid black;
+  padding: 3px;  
+}
+
+table, tr, td {
+  text-align: center;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.nomes {
+  background-color: gray;
+  padding: 20px;
+}
+
+.buttonAction {
+  width: 100%;
+  height: 100%;
+  background-color: hotpink;
+  color: white;
+}
+
+.h4 {
+  color: black;
+}
+
+.corpo {
+  height: 500px;
+}
+
+.corpo_form {
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.corpo_form input {
+  text-align: center;
+  width: 400px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.footer {
+  background-color: tomato;
+  height: 100px;
+  width: 500px;
+  margin-top: 35px;
+}
+
+.btnFooter {
+  width: 100px;
+  height: 100px;
+}
+
+.titulo {
+  height: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.label {
+  background-color: tomato;
+  color: white;
+}
+
+.cadastrar {
+  height: 200px;
+  width: 750px;
+  padding: 10px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.h3 {
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 700px;
+}
+
+input {
+  height: 30px;
+  padding: 15px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+label p {
+  line-height: 1px;
+}
+
+form button {
+  width: 400px;
+  background-color: tomato;
+  padding: 10px;
+  color: white;
+}
+
+.pagination {
+  margin: 15px auto;
+  display: flex;
+  list-style: none;
+  outline: none;
+}
+.pagination > .active > a{
+  background-color: #47ccde ;
+  border-color: #47ccde ;
+  color: #fff;
+}
+.pagination > li > a{
+  border: 1px solid #47ccde ;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+  background-color: #47ccde ;
+  border-color: #47ccde;
+  outline: none ;
+}
+.pagination > li > a, .pagination > li > span{
+  color: #47ccde
+}
+.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+  border-radius: unset
+}
