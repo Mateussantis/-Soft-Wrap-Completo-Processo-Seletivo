@@ -4,10 +4,12 @@ import { api } from '../../services/api';
 import { Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import ReactPaginate from 'react-paginate'; 
+import Cadastro from '../../Components/Cadastro';
+import Tabela from '../../Components/Tabela';
 
 export default class App extends Component {
-  constructor() {
-    super();    
+  constructor(props) {
+    super(props);    
     this.state = {
       lista: [],
       cadastro: {
@@ -29,7 +31,6 @@ export default class App extends Component {
       modalAltera: false,
 
       offSet: 0,
-      // tableData: [],
       orgtableData: [],
       perPage: 3,
       currentPage: 0,
@@ -40,13 +41,7 @@ export default class App extends Component {
     this.alterar = this.alterar.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
   }
-
-
-  // listar = () => {
-  //   fetch("http://localhost:3333/users")
-  //     .then(response => response.json())
-  //     .then(data => this.setState({ lista: data}));
-  // }
+  
 
   listar = () => {
     api.get("users")
@@ -118,7 +113,7 @@ export default class App extends Component {
   }
 
   alterar = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     let id = this.state.altera.id;
     let usuario = this.state.altera;
@@ -191,117 +186,19 @@ export default class App extends Component {
     return(
       <div className="body">
 
-        <h3 className="h3">Cadastrar um Usuario</h3>
-        <div className="cadastrar">
-          <form className="form" onSubmit={this.cadastrar} >
-            <label>
-            <p>Nome</p>
-            <input type="text" placeHolder="Nome" name="nome" value={this.state.cadastro.nome} onChange={this.atualizarDados.bind(this)} />
-            </label>
-            <label>
-              <p>Idade</p>
-              <input type="number" placeHolder="Idade" name="idade" value={this.state.cadastro.idade} onChange={this.atualizarDados.bind(this)} />
-            </label>
-            <label>
-              <p>Estado Civil</p>
-              <input type="text" placeHolder="Estado Civil" name="estado_civil" value={this.state.cadastro.estado_civil} onChange={this.atualizarDados.bind(this)} />
-            </label>
-            <label>
-              <p>CPF</p>
-              <input type="text" placeHolder="Cpf" name="cpf" value={this.state.cadastro.cpf} onChange={this.atualizarDados.bind(this)} />
-            </label>
-            <label>
-              <p>Cidade</p>
-              <input type="text" placeHolder="Cidade" name="cidade" value={this.state.cadastro.cidade} onChange={this.atualizarDados.bind(this)} />
-            </label>
-            <label>
-              <p>Estado</p>
-              <input type="text" placeHolder="Estado" name="estado" value={this.state.cadastro.estado} onChange={this.atualizarDados.bind(this)} />
-            </label>
-            <button type="submite">Cadastrar</button>
-          </form>
-        </div>
+        <Cadastro cadastro = {this.state.cadastro} cadastrar = {this.cadastrar} atualizarDados = {this.atualizarDados} />
 
-        <h3>Tabela De Usuarios</h3>
-        <table>
-        <tr>
-          <td className="nomes"><strong>Identificação</strong></td>
-          <td className="nomes"><strong>Nome</strong></td>
-          <td className="nomes"><strong>Idade</strong></td>
-          <td className="nomes"><strong>Estado Civil</strong></td>
-          <td className="nomes"><strong>Cpf</strong></td>
-          <td className="nomes"><strong>Cidade</strong></td>
-          <td className="nomes"><strong>Estado</strong></td>
-          <td className="nomes"><strong>Função 1</strong></td>
-          <td className="nomes"><strong>Função 2</strong></td>
-        </tr>
-          {
-            this.state.lista.map(function(user, i){
-              return(
-                <tr key={user.id}>
-                  <td>{user.id}</td>
-                  <td>{user.nome}</td>
-                  <td>{user.idade}</td>
-                  <td>{user.estado_civil}</td>
-                  <td>{user.cpf}</td>
-                  <td>{user.cidade}</td>
-                  <td>{user.estado}</td>
-                  <td><button className="buttonAction" onClick={() => this.abrirModalAlterar(user)}>Alterar</button></td>
-                  <td><button className="buttonAction" onClick={e => this.deletar(user.id)} >Deletar</button></td>
-                </tr>
-              );
-            }.bind(this))
-          }
-        </table>
-          <ReactPaginate
-            previousLabel={"<"}
-            nextLabel={">"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={this.state.pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={this.handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
-          />
-        
-
-        <Modal show={this.state.modalAltera} onHide={this.toggleAltera}>
-        <form onSubmit={this.alterar}>
-            <div className="titulo">
-              <h4 className="h4">Alterar</h4>
-            </div>
-            <Modal.Body className="corpo">
-            <div className="corpo_form">
-              <div className="label">
-                Nome
-                <input text="a" name="nome" value={this.state.altera.nome} onChange={this.atualizarDadosAlterar.bind(this)} />
-              </div>
-              <div className="label">Idade
-                <input label="Idade" name="idade" type="number"value={this.state.altera.idade} onChange={this.atualizarDadosAlterar.bind(this)} />
-              </div>
-              <div className="label">Estado Civil
-                <input name="estado_civil" value={this.state.altera.estado_civil} onChange={this.atualizarDadosAlterar.bind(this)} />
-              </div>
-              <div className="label">CPF
-                <input name="cpf" value={this.state.altera.cpf} onChange={this.atualizarDadosAlterar.bind(this)} />
-              </div>
-              <div className="label">Cidade
-                <input name="cidade" value={this.state.altera.cidade} onChange={this.atualizarDadosAlterar.bind(this)} />
-              </div>
-              <div className="label">Estado
-                <input name="estado" value={this.state.altera.estado} onChange={this.atualizarDadosAlterar.bind(this)} />
-              </div>
-            </div>
-          </Modal.Body>
-          <Modal.Footer className="footer">
-            <Button className="btnFooter" variant="secondary" onClick={this.toggleFecha}>Close</Button>
-            <Button className="btnFooter" variant="primary" type="submit" onClick={this.toggleFecha}>Salvar</Button>
-          </Modal.Footer>
-        </form>
-      </Modal>
+        <Tabela 
+          listar={this.listar} lista={this.state.lista}
+          modalAltera={this.state.modalAltera} altera={this.state.altera}
+          toggleAltera={this.toggleAltera} abrirModalAlterar={this.abrirModalAlterar} alterar={this.alterar}  
+          atualizarDadosAlterar={this.atualizarDadosAlterar} toggleFecha={this.toggleFecha}
+          deletar={this.deletar} 
+          orgtableData={this.state.orgtableData} perPage={this.state.perPage} offset={this.state.offset} 
+          currentPage={this.state.currentPage} pageCount={this.state.pageCount} 
+          handlePageClick={this.handlePageClick} loadMoreData={this.loadMoreData}  
+        />
+                 
       </div>
     );
   }
