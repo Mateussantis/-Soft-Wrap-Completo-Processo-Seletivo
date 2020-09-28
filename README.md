@@ -9,11 +9,11 @@ Ps => {
   Dito isso podemos comecar!
 }
 
-1 - Entrar na pasta Back_End e rodar o comando no prompt (CMD) -> YARN INSTALL
-2 - Execute a migration, para criar sua tabela no banco de dados (CMD) --> YARN SEQUELIZE DB:MIGRATE
-2 - Em seguida, rode o comando -> YARN DEV
-3 - Depois disso, abra a pasta do Front_End e rode no prompt (CMD) -> NPM INSTALL
-4 - E por ultimo -> NPM START
+* 1 - Entrar na pasta Back_End e rodar o comando no prompt (CMD) -> YARN INSTALL
+* 2 - Execute a migration, para criar sua tabela no banco de dados (CMD) --> YARN SEQUELIZE DB:MIGRATE
+* 2 - Em seguida, rode o comando -> YARN DEV
+* 3 - Depois disso, abra a pasta do Front_End e rode no prompt (CMD) -> NPM INSTALL
+* 4 - E por ultimo -> NPM START
 
 ### Back End
 Como foi pedido no desafio, a aplicação foi desenvolida em Node.Js, optei também por utilizar um modulo chamado "NODEMON", facilitando assim o desenvolvimento, pois foi possivel setar configurações para o projeto ficar se auto reiniciando, sem a necessidade de perder tempo tendo que fazer essa reinicializaão a cada mudança, ajudando muito na produtividade.
