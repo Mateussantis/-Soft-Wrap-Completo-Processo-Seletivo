@@ -40,6 +40,7 @@ Optei por utilizar o "AXIOS", ao inves do proprio fetch, pois assim conseguimos 
 e codigo, tornando o mais visivel e simples de entender.
 Tambem o uso de uma biblioteca chamada "REACT-BOOTSTRAP" para a facilitação do uso de Modal (Uma quadrado de opçoes),
 para o usuario nao ter que ir para outra pagina sempre que quiser realizar uma ação.
+Além é claro de habilitar o "CORS", para permitir e habilitar o acesso entre api com o front end.
 
 ### Considerações Finais
 Achei um desafio bem interessante, pelo fato de ter mexido apenas uma vez com essa tecnologia do back end, node.js, dockers, express, sequelize...
